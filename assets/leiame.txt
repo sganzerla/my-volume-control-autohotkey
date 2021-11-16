@@ -1,0 +1,15 @@
+INSTALAÇÃO
+
+    - instalado SDK AutoHotKey
+    - criado script para AutoHotKey com TECLAS mapeadas para controle do volume
+        - CRTL + X = AUMENTA O VOLUME
+        - CRTL + V = DIMINUI O VOLUME
+    - criado atalho para o script na area de trabalho
+    - criado inicializador para o script
+
+DESINSTALAÇÃO
+
+    - desinstalar o SDK AutoHotKey (NÃO IMPLEMENTADO)
+    - desinstalar o script
+    - desinstalar o atalho
+    - desinstalar o inicializador
