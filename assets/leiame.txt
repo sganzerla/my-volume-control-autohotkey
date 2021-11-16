@@ -5,11 +5,13 @@ INSTALAÇÃO
         - CRTL + X = AUMENTA O VOLUME
         - CRTL + V = DIMINUI O VOLUME
     - criado atalho para o script na area de trabalho
-    - criado inicializador para o script
+    - inicia junto com o Windows atraves da chave no registro do windows:
+        - HKLM Software\Microsoft\Windows\CurrentVersion\Run\MyVolumeControlAutoHotKey
 
-DESINSTALAÇÃO
+DESINSTALAÇÃO 
 
     - desinstalar o SDK AutoHotKey (NÃO IMPLEMENTADO)
-    - desinstalar o script
-    - desinstalar o atalho
-    - desinstalar o inicializador
+    - excluir a pasta com os arquivos
+    - excluir o atalho 
+    - desinstalar o inicializador removendo a chave no registro do windows: 
+        - HKLM Software\Microsoft\Windows\CurrentVersion\Run\MyVolumeControlAutoHotKey

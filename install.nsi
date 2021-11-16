@@ -55,6 +55,17 @@ Section "Criando atalho" SEC03
   CreateShortCut "$DESKTOP\VolumeControl.lnk" "$INSTDIR\volume.ahk"
 SectionEnd
 
+Section "Startup with Windows" SEC04
+    ; cria arquivo ou sobreescreve um existente com este conteúdo
+    FileOpen $4 "$PROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\volumeControl.bat" w 
+    FileWrite $4 "@echo off$\r$\n"
+    FileWrite $4 "@echo                    ***    VolumeControl !    ***$\r$\n"
+    FileWrite $4 "ping -n 3 localhost>nul$\r$\n"
+    FileWrite $4 "start $Desktop\VolumeControl$\r$\n"
+    FileWrite $4 "exit$\r$\n"
+    FileClose $4 ;Closes the filled file
+SectionEnd
+
 Section -Post
   WriteUninstaller "$INSTDIR\uninst.exe"
 SectionEnd
@@ -62,5 +73,7 @@ SectionEnd
 Section Uninstall
   RMDir /r "$INSTDIR"
   Delete "$DESKTOP\VolumeControl.lnk"
+   Delete "$PROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\volumeControl.bat"
   ; não está sendo desinstalado o SDK AutoHotKey
 SectionEnd
+
