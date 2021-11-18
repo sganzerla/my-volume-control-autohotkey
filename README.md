@@ -10,7 +10,9 @@ Neste exemplo a combinação das teclas `Tecla Control (^) + Tecla X`  aumenta 2
 
 Com o script ativo na máquina o serviço rodando poderá ser observado na aba de tarefas do Windows com um ícone `H` verde no canto inferior direito.
 
-Para alterar os comandos de controle de volume, altere o arquivo  `volume.ahk` com as configurações desejadas. Além das teclas, pode-se altarar a taxa de variação do volume.
+Para alterar os comandos de controle de volume, altere o arquivo  `volume.ahk` com as configurações desejadas. 
+
+Além das teclas, pode-se alterar a taxa de variação do volume.
 
     ; Tecla Control (^) + Tecla X
     ^X::
