@@ -24,7 +24,21 @@ Para alterar os comandos de controle de volume, altere o arquivo  `volume.ahk` c
 ## Requisitos
 
 Para que o script funcione corretamente, é necessário que o SDK do AutoHotKey esteja instalado.
+
 Para criar um instalador próprio, é necessário que o SDK NSIS esteja instalado.
+
+## Desinstalação
+
+  Para fechar o programa, ir na aba de notificações e clicar no ícone `H` verde.
+
+  Para desinstalar basta executar o programa `unistall.exe` que está na pasta da instalação.
+
+  Se o progrma continuar sendo executado após a inicialiazação do Windows, remova-o da inicialização automática executando os seguintes passos:
+
+    * Clicar na tecla `Windows`
+    * Digitar `Run` ou `Executar`
+    * Digitar `shell:startup`
+    * Excluir o arquivo `volumeControl.bat`
 
 ## Fonte
 
