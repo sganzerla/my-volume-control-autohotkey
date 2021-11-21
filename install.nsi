@@ -6,10 +6,11 @@ Unicode true
 !define PRODUCT_PUBLISHER "My Volume Control AutoHotKey"  
 !define PRODUCT_VERSION "1.0.0.0"
 !define VERSION "1.0.0.0"
+!define /date NOW "%Y-%m-%d-%H-%M-%S"
 VIProductVersion "${PRODUCT_VERSION}"
 VIFileVersion "${VERSION}"
 VIAddVersionKey "FileVersion" "${VERSION}"
-VIAddVersionKey "FileDescription" "Configurar My Volume Control AutoHotKey"
+VIAddVersionKey "FileDescription" "Instalador ${PRODUCT_NAME} {NOW}"
 
 ; MUI Settings
 !define MUI_ABORTWARNING
@@ -27,8 +28,8 @@ VIAddVersionKey "FileDescription" "Configurar My Volume Control AutoHotKey"
 ; MUI end ------
 
 Name "${PRODUCT_NAME}"
-OutFile "dist\install-my-volume-control-autohotkey.exe"
-InstallDir "D:\My Volume Control AutoHotKey"
+OutFile "dist\install-${PRODUCT_NAME}-v${VERSION}-${NOW}.exe"
+InstallDir "D:\${PRODUCT_NAME}"
 ShowInstDetails show
 ShowUnInstDetails show
 SetCompress auto
@@ -52,16 +53,16 @@ SectionEnd
 
 Section "Criando atalho" SEC03
   SetShellVarContext current
-  CreateShortCut "$DESKTOP\VolumeControl.lnk" "$INSTDIR\volume.ahk"
+  CreateShortCut "$DESKTOP\${PRODUCT_NAME}.lnk" "$INSTDIR\volume.ahk"
 SectionEnd
 
 Section "Startup with Windows" SEC04
     ; cria arquivo ou sobreescreve um existente com este conteúdo
-    FileOpen $4 "$PROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\volumeControl.bat" w 
+    FileOpen $4 "$PROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\${PRODUCT_NAME}.bat" w 
     FileWrite $4 "@echo off$\r$\n"
-    FileWrite $4 "@echo                    ***    VolumeControl !    ***$\r$\n"
+    FileWrite $4 "@echo                    ***    ${PRODUCT_NAME} !    ***$\r$\n"
     FileWrite $4 "ping -n 3 localhost>nul$\r$\n"
-    FileWrite $4 "start $Desktop\VolumeControl$\r$\n"
+    FileWrite $4 "start $Desktop\${PRODUCT_NAME}$\r$\n"
     FileWrite $4 "exit$\r$\n"
     FileClose $4 ;Closes the filled file
 SectionEnd
@@ -72,8 +73,8 @@ SectionEnd
 
 Section Uninstall
   RMDir /r "$INSTDIR"
-  Delete "$DESKTOP\VolumeControl.lnk"
-   Delete "$PROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\volumeControl.bat"
+  Delete "$DESKTOP\${PRODUCT_NAME}.lnk"
+   Delete "$PROFILE\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\${PRODUCT_NAME}.bat"
   ; não está sendo desinstalado o SDK AutoHotKey
 SectionEnd
 
